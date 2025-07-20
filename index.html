@@ -6,14 +6,15 @@
   <title>Secure Login Portal</title>
   <style>
     body {
-      background: #0e0e0e;
-      color: #00ffcc;
-      font-family: monospace;
+      background: #fff;
+      color: #000;
+      font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
+      margin: 0;
     }
     form {
       display: flex;
@@ -23,18 +24,23 @@
     input, button {
       margin: 10px 0;
       padding: 10px;
-      border: none;
+      border: 1px solid #ccc;
       border-radius: 4px;
-      font-family: monospace;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
     }
     input {
-      background: #222;
-      color: #00ffcc;
+      background: #fff;
+      color: #000;
     }
     button {
-      background: #00ffcc;
-      color: #000;
+      background: #007bff;
+      color: #fff;
       cursor: pointer;
+      border: none;
+    }
+    button:hover {
+      background: #0056b3;
     }
   </style>
 </head>
@@ -62,10 +68,14 @@
           body: JSON.stringify({ username, password })
         });
 
-        const result = await response.text();
-        alert(result);
+        if (!response.ok) {
+          const errorMsg = await response.text();
+          alert(errorMsg);
+        } else {
+          alert("Unexpected response. Please try again.");
+        }
       } catch (err) {
-        alert("Error: " + err.message);
+        alert("Network error: " + err.message);
       }
     });
   </script>
